@@ -1,5 +1,5 @@
-import connection from '../db/models/connection';
-import UserModel from '../db/models/user.model';
+import connection from '../models/connection';
+import UserModel from '../models/user.model';
 import { User } from '../interfaces';
 import createToken from './auth/jwtGenerate';
 
