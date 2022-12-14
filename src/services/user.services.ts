@@ -13,8 +13,13 @@ export default class UserService {
   public create = async (user: User): Promise<string> => {
     const createdUser = await this.model.create(user);
     // if (!createdUser) return 'ERRO';
-    const { id, username, vocation } = createdUser;
-    const token = createToken({ id, username, vocation });
+    const { id, username } = createdUser;
+    const token = createToken({ id, username });
     return token;
+  };
+
+  public findByUserName = async (username: string) => {
+    const userInDB = await this.model.findByUsername(username);
+    return userInDB;
   };
 }

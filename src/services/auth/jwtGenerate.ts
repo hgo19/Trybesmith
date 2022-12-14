@@ -8,7 +8,6 @@ const secret = process.env.JWT_SECRET || 'suasenha';
 type TUser = {
   id?: number,
   username: string,
-  vocation: string,
 };
 
 const createToken = (user: TUser): string => {

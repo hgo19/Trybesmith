@@ -9,7 +9,7 @@ export default class OrderModel {
   }
 
   public getAll = async (): Promise<Order[]> => {
-    const query = `SELECT o.id, o.user_id, JSON_ARRAYAGG(p.id) as productsIds
+    const query = `SELECT o.id, o.user_id as userId, JSON_ARRAYAGG(p.id) as productsIds
     FROM Trybesmith.orders as o
     INNER JOIN Trybesmith.products as p
     ON o.id = p.order_id
