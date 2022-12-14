@@ -18,3 +18,8 @@ export interface Order {
   userId: number;
   productsIds: number[];
 }
+
+export type UserLogin = {
+  username: string,
+  password: string,
+};
