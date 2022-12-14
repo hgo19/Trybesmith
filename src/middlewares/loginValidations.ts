@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from 'express';
 import { BadRequestError } from 'restify-errors';
 import validateLogin from './validations/inputsValidations';
 
-export const checkLoginProperties = (req: Request, res: Response, next: NextFunction) => {
+const checkLoginProperties = (req: Request, res: Response, next: NextFunction) => {
   const { isError, message } = validateLogin(req.body);
   if (!isError) {
     return next();
@@ -10,4 +10,4 @@ export const checkLoginProperties = (req: Request, res: Response, next: NextFunc
   throw new BadRequestError(message);
 };
 
-export const checkPassword = () => {};
+export default { checkLoginProperties };
