@@ -1,14 +1,29 @@
+import { UnauthorizedError } from 'restify-errors';
 import UserService from './user.services';
 import createToken from './auth/jwtGenerate';
+import { UserLogin } from '../interfaces';
+
+const userOrPassInvalid = 'Username or password invalid';
 
 export default class LoginService {
   constructor(private userService = new UserService()) { }
 
-  public login = async (username: string) => {
+  public async login(userLogin: UserLogin) {
+    const { username, password: loginPass } = userLogin;
     const isUserInDB = await this.userService.findByUserName(username);
-    const { id } = isUserInDB;
-    const token = createToken({ id, username });
+    
+    if (!isUserInDB) {
+      console.log('usuário nao está no DB.');
+      throw new UnauthorizedError(userOrPassInvalid);
+    }
 
-    return token;
-  };
+    const { id, password } = isUserInDB;
+    
+    if (password !== loginPass) {
+      console.log('senha não condiz com senha do usuário.');
+      throw new UnauthorizedError(userOrPassInvalid);
+    }
+
+    return createToken({ id, username });
+  }
 }

@@ -5,6 +5,8 @@ import OrderRoutes from './routes/order.routes';
 import LoginRoute from './routes/login.routes';
 import errorMiddleware from './middlewares/errorMiddleware';
 
+import 'express-async-errors';
+
 const app = express();
 
 app.use(express.json());

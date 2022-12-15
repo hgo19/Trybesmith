@@ -23,7 +23,7 @@ export default class UserModel {
 
   public findByUsername = async (username: string): Promise<User> => {
     const query = 'SELECT * FROM Trybesmith.users WHERE username = ?';
-    const [row] = await this.connection.execute<RowDataPacket[] & User>(query, [username]);
+    const [[row]] = await this.connection.execute<RowDataPacket[][] & User[]>(query, [username]);
 
     return row;
   };
