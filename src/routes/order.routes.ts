@@ -12,6 +12,8 @@ router.post(
   '/',
   tokenValidations.checkTokenProperty,
 
+  tokenValidations.verifyToken,
+
   orderValidations.checkNewOrderProperties,
 
   ordersController.create,
