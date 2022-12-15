@@ -18,6 +18,18 @@ export default class OrderModel {
     return rows;
   };
 
+  public getById = async (id: number): Promise<Order> => {
+    const query = `SELECT o.id, o.user_id as userId, JSON_ARRAYAGG(p.id) as productsIds
+    FROM Trybesmith.orders as o
+    INNER JOIN Trybesmith.products as p
+    ON o.id = p.order_id
+    WHERE o.id = ?
+    group by o.id;`;
+
+    const [[row]] = await this.connection.execute<RowDataPacket[][] & Order[]>(query, [id]);
+    return row;
+  };
+
   public create = async (userId: number): Promise<number> => {
     const query = 'INSERT INTO Trybesmisth.orders (user_id)';
     const [{ insertId }] = await this.connection.execute<ResultSetHeader>(query, [userId]);

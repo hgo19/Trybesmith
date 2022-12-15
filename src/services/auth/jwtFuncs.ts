@@ -10,7 +10,7 @@ type TUser = {
   username: string,
 };
 
-const createToken = (user: TUser): string => {
+export const createToken = (user: TUser): string => {
   const token = jwt.sign({ data: user }, secret, {
     expiresIn: '5d',
     algorithm: 'HS256',
@@ -19,4 +19,11 @@ const createToken = (user: TUser): string => {
   return token;
 };
 
-export default createToken;
+export const decodedToken = (token: string) => {
+  try {
+    const decoded: any = jwt.verify(token, secret);
+    return decoded.data;
+  } catch (error) {
+    console.log(error);
+  }
+};

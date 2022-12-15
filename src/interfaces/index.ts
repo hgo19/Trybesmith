@@ -23,3 +23,13 @@ export type UserLogin = {
   username: string,
   password: string,
 };
+
+export interface UpdateProducts {
+  productsIds: number[],
+  orderId: number,
+}
+
+export interface CreateOrder {
+  token: string,
+  productsIds: number[],
+}

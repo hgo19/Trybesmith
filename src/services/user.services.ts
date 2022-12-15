@@ -1,7 +1,7 @@
 import connection from '../models/connection';
 import UserModel from '../models/user.model';
 import { User } from '../interfaces';
-import createToken from './auth/jwtGenerate';
+import { createToken } from './auth/jwtFuncs';
 
 export default class UserService {
   public model: UserModel;

@@ -1,6 +1,6 @@
 import { UnauthorizedError } from 'restify-errors';
 import UserService from './user.services';
-import createToken from './auth/jwtGenerate';
+import { createToken } from './auth/jwtFuncs';
 import { UserLogin } from '../interfaces';
 
 const userOrPassInvalid = 'Username or password invalid';
