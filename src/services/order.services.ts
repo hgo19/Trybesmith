@@ -20,16 +20,18 @@ export default class OrderService {
   };
 
   public create = async ({ token, productsIds }: CreateOrder) => {
-    const { id } = decodedToken(token);
-    const insertedId = await this.orderModel.create(id);
+    if (token) {
+      const { id } = decodedToken(token);
+      const insertedId = await this.orderModel.create(id);
 
-    await this.productModel.update({ productsIds, orderId: insertedId });
-
-    const orderInDB = await this.orderModel.getById(insertedId);
-
-    return {
-      userId: orderInDB.userId,
-      productsIds: orderInDB.productsIds,
-    };
+      await this.productModel.update({ productsIds, orderId: insertedId });
+  
+      const orderInDB = await this.orderModel.getById(insertedId);
+  
+      return {
+        userId: orderInDB.userId,
+        productsIds: orderInDB.productsIds,
+      };
+    }
   };
 }
