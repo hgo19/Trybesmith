@@ -55,3 +55,8 @@ export const newUserSchema = Joi.object({
   level: levelSchema,
   password: passwordSchema,
 }).required();
+
+export const tokenSchema = Joi.string().min(1).required().messages({
+  'any.required': 'Token not found',
+  'string.empty': 'Token not found',
+});

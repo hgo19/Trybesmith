@@ -1,5 +1,6 @@
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
+import { UnauthorizedError } from 'restify-errors';
 
 dotenv.config();
 
@@ -25,5 +26,6 @@ export const decodedToken = (token: string) => {
     return decoded.data;
   } catch (error) {
     console.log(error);
+    throw new UnauthorizedError('Invalid token');
   }
 };
