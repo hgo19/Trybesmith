@@ -30,6 +30,6 @@ export interface UpdateProducts {
 }
 
 export interface CreateOrder {
-  token: string,
+  token?: string,
   productsIds: number[],
 }
