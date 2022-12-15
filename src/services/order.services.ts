@@ -1,16 +1,8 @@
-import { JwtPayload } from 'jsonwebtoken';
 import connection from '../models/connection';
 import OrderModel from '../models/order.model';
 import { CreateOrder, Order } from '../interfaces';
 import { decodedToken } from './auth/jwtFuncs';
 import ProductModel from '../models/product.model';
-
-interface Tdecoded extends JwtPayload {
-  data: {
-    id: number,
-    username: string
-  }
-}
 
 export default class OrderService {
   public orderModel: OrderModel;
@@ -29,7 +21,7 @@ export default class OrderService {
 
   public create = async ({ token, productsIds }: CreateOrder) => {
     if (token) {
-      const { data: { id } }: Tdecoded = decodedToken(token);
+      const { id } = decodedToken(token);
       const insertedId = await this.orderModel.create(id);
 
       await this.productModel.update({ productsIds, orderId: insertedId });

@@ -60,3 +60,12 @@ export const tokenSchema = Joi.string().min(1).required().messages({
   'any.required': 'Token not found',
   'string.empty': 'Token not found',
 });
+
+export const productsIdsSchema = Joi.array().items(Joi.number().min(1).required().messages({
+  'number.base': '"productsIds" must include only numbers',
+})).min(0).required()
+  .messages({
+    'array.base': '"productsIds" must be an array',
+    'any.required': '"productsIds" is required',
+    'array.includesRequiredUnknowns': '"productsIds" must include only numbers',
+  });
