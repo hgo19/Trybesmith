@@ -1,13 +1,12 @@
-import { loginSchema } from './schema';
-import { UserLogin } from '../../interfaces';
-
+import { loginSchema, newProductSchema } from './schema';
+import { UserLogin, Product } from '../../interfaces';
 // type validationReturn = {
 //   isError: boolean,
 //   error?: Joi.ValidationError
 // };
 // PERGUNTAR SOBRE ISSO
 
-const validateLogin = (userLogin: UserLogin) => {
+export const validateLogin = (userLogin: UserLogin) => {
   const { error } = loginSchema.validate(userLogin);
   if (error) {
     const { message } = error;
@@ -17,4 +16,13 @@ const validateLogin = (userLogin: UserLogin) => {
   return { isError: false };
 };
 
-export default validateLogin;
+export const validateNewProduct = (newProduct: Product) => {
+  const { error } = newProductSchema.validate(newProduct);
+  if (error) {
+    console.log(error);
+    const { message } = error;
+    return { isError: true, message };
+  }
+
+  return { isError: false };
+};

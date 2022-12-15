@@ -14,3 +14,20 @@ export const loginSchema = Joi.object({
   username: usernameSchema,
   password: passwordSchema,
 }).required();
+
+const nameProductSchema = Joi.string().min(3).required().messages({
+  'any.required': '"name" is required',
+  'string.empty': '"name" is required',
+  'string.min': '"name" length must be at least 3 characters long',
+});
+
+const amountProductSchema = Joi.string().min(3).required().messages({
+  'any.required': '"amount" is required',
+  'string.empty': '"amount" is required',
+  'string.min': '"amount" length must be at least 3 characters long',
+});
+
+export const newProductSchema = Joi.object({
+  name: nameProductSchema,
+  amount: amountProductSchema,
+}).required();

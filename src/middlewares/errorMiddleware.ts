@@ -3,7 +3,7 @@ import { DefinedHttpError } from 'restify-errors';
 
 const errorMiddleware = (
   error: DefinedHttpError, 
-  req: Request, 
+  _req: Request, 
   res: Response, 
   _next: NextFunction,
 ) => {

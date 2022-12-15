@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 import { BadRequestError } from 'restify-errors';
-import validateLogin from './validations/inputsValidations';
+import { validateLogin } from './validations/inputsValidations';
 
 const checkLoginProperties = (req: Request, res: Response, next: NextFunction) => {
   const { isError, message } = validateLogin(req.body);
