@@ -9,9 +9,6 @@ const errorMiddleware = (
 ) => {
   console.log(error);
   const { message } = error;
-  if (!error.statusCode) {
-    return res.status(500).json({ message });
-  }
   res.status(error.statusCode).json({ message });
 };
 
