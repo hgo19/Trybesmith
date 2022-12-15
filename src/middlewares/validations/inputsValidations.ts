@@ -1,12 +1,12 @@
 import { loginSchema, newProductSchema, newUserSchema } from './schema';
 import { UserLogin, Product, User } from '../../interfaces';
-// type validationReturn = {
-//   isError: boolean,
-//   error?: Joi.ValidationError
-// };
-// PERGUNTAR SOBRE ISSO
 
-export const validateLogin = (userLogin: UserLogin) => {
+type ValidationReturn = {
+  isError: boolean,
+  message?: string
+};
+
+export const validateLogin = (userLogin: UserLogin): ValidationReturn => {
   const { error } = loginSchema.validate(userLogin);
   if (error) {
     const { message } = error;
@@ -16,7 +16,7 @@ export const validateLogin = (userLogin: UserLogin) => {
   return { isError: false };
 };
 
-export const validateNewProduct = (newProduct: Product) => {
+export const validateNewProduct = (newProduct: Product): ValidationReturn => {
   const { error } = newProductSchema.validate(newProduct);
   if (error) {
     const { message } = error;
@@ -26,7 +26,7 @@ export const validateNewProduct = (newProduct: Product) => {
   return { isError: false };
 };
 
-export const validateNewUser = (newUser: User) => {
+export const validateNewUser = (newUser: User): ValidationReturn => {
   const { error } = newUserSchema.validate(newUser);
   if (error) {
     const { message } = error;
