@@ -1,4 +1,5 @@
 import jwt from 'jsonwebtoken';
+import type { JwtPayload } from 'jsonwebtoken';
 import dotenv from 'dotenv';
 import { UnauthorizedError } from 'restify-errors';
 
@@ -22,7 +23,7 @@ export const createToken = (user: TUser): string => {
 
 export const decodedToken = (token: string) => {
   try {
-    const decoded: any = jwt.verify(token, secret);
+    const decoded = jwt.verify(token, secret) as JwtPayload;
     return decoded.data;
   } catch (error) {
     console.log(error);
