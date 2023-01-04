@@ -43,6 +43,11 @@ Dentro do Container:
 ```bash
 npm install
 ```
+Para criar o banco de dados:
+```bash
+npm run createDB
+```
+Para iniciar a aplicação na porta 3000:
 ```bash
 npm run dev
 ```
@@ -60,6 +65,18 @@ npm install
 2. Na aplicação tem um arquivo chamado `.env.example`, renomei para apenas `.env` e o configure para que consiga rodar localmente.
 
 3. Para rodar localmente você precisa ter instalado o `Node.js` na sua máquina, em que, a versão deve ser `"node": ">=16.0.0"` e a versão do `"npm": ">=7.0.0"`.
+
+4. Em seguida digite os seguintes comandos em seu terminal:
+
+Para criar o banco de dados:
+```bash
+npm run createDB
+```
+
+Para iniciar a aplicação na porta 3000:
+```bash
+npm run dev
+```
 
 </details>
 
