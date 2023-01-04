@@ -26,4 +26,4 @@ CREATE TABLE Trybesmith.products (
 INSERT INTO
   Trybesmith.users (username, vocation, level, password)
 VALUES
-  ("zoro", "Swordsman", 5, "cabecademarimo");
+  ("Zoro", "Swordsman", 5, "cabecademarimo");
