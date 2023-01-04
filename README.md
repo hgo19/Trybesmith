@@ -93,16 +93,22 @@ npm run dev
 >**Todos os ENDPOINTS precisam de um `TOKEN` válido para ser realizada a requisição, esse Token é gerado a partir do Login**
 
 ### Login
-- POST `/login` retornará um `TOKEN` em caso de login bem sucedido(usuário presente no banco de dados com a senha correta)
+- POST `/login` retornará um `TOKEN` em caso de login bem sucedido(usuário presente no banco de dados com a senha correta). Usuário já cadastrado no Banco de Dados para testes:
+```json
+  {
+    "username": "Zoro",
+    "password": "cabecademarimo"
+  }
+```
 
 ### Users
 - POST `/users` endpoint para cadastro de usuário, retornará um `TOKEN` em caso de sucesso. Para cadastrar o usuário a requisição deve conter o seguinte body:
 ```json
 { 
-  "username": "Zoro",
-  "vocation": "swordsman",
+  "username": "Sanji",
+  "vocation": "fighter",
   "level": 7,
-  "password": "marimo13"
+  "password": "sombrancelhudo"
 }
 ```
 

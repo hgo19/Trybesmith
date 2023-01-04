@@ -26,30 +26,4 @@ CREATE TABLE Trybesmith.products (
 INSERT INTO
   Trybesmith.users (username, vocation, level, password)
 VALUES
-  ("reigal", "Guerreiro", 10, "1dragaonoceu"),
-  ("vyrion", "Inventor", 8, "pagandodividas"),
-  ("yraa", "Ladina", 5, "valarmorg");
-
-INSERT INTO
-  Trybesmith.orders (user_id)
-VALUES
-  (1),
-  (3),
-  (2);
-
-INSERT INTO
-  Trybesmith.products (name, amount)
-VALUES
-  ("Espada curta", "10 peças de ouro");
-
-INSERT INTO
-  Trybesmith.products (name, amount, order_id)
-VALUES
-  (
-    "Escudo desnecessariamente grande",
-    "20 peças de ouro",
-    1
-  ),
-  ("Adaga de Aço Valírico", "1 peça de ouro", 2),
-  ("Colar de fogo", "1 peça de ouro", 2),
-  ("Engenhoca aleatória", "15 peças de ouro", 3);
+  ("zoro", "Swordsman", 5, "cabecademarimo");
