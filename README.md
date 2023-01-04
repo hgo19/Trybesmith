@@ -78,7 +78,10 @@ Para iniciar a aplicação na porta 3000:
 npm run dev
 ```
 
->**Script de criação de banco de dados e função que executa o mesmo escrito pela escola de ensino de desenvolvimento web Trybe.**
+<br />
+<br />
+
+>**Função de criação de banco de dados e query para criar o mesmo escritos por: [Trybe](https://www.betrybe.com/).**
 
 </details>
 
@@ -90,7 +93,7 @@ npm run dev
 <summary><strong>Na aplicação foram usados os seguintes endpoints: </strong></summary>
 <br />
 
->**Todos os ENDPOINTS precisam de um `TOKEN` válido para ser realizada a requisição, esse Token é gerado a partir do Login**
+>**Todos os ENDPOINTS precisam de um `TOKEN` válido para ser realizada a requisição, exceto o de login e o de criação de usuário, ambos terão um token na sua resposta**
 
 ### Login
 - POST `/login` retornará um `TOKEN` em caso de login bem sucedido(usuário presente no banco de dados com a senha correta). Usuário já cadastrado no Banco de Dados para testes:
