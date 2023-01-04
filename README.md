@@ -78,6 +78,8 @@ Para iniciar a aplicação na porta 3000:
 npm run dev
 ```
 
+>**Script de criação de banco de dados e função que executa o mesmo escrito pela escola de ensino de desenvolvimento web Trybe.**
+
 </details>
 
 <br />
